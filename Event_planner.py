@@ -63,16 +63,27 @@ if plan_or_load == "N":
         print('Please input your note:')
         event_note = input()
 
+    # Saves the details in case the user addsa an event note
+        print('Saving the details...')
+        print('Please name the save file (Name must end in .pkl)')
+        save_file_name = input()
+        event_details=[event_name, event_date, person_count, event_note]
+        with open(save_file_name , 'wb') as file:
+            pickle.dump(event_details, file)
+
+
+
         #Checks the case where the user does not want to add any notes
     if add_notes == 'N':
         print('No notes will be added, continuing with the creation process')
 
 
-    # Saves the details
+    # Saves the details if the user doesn't add any note
+
     print('Saving the details...')
     print('Please name the save file (Name must end in .pkl)')
     save_file_name = input()
-    event_details=[event_name, event_date, person_count, event_note ]
+    event_details=[event_name, event_date, person_count]
     with open(save_file_name , 'wb') as file:
         pickle.dump(event_details, file)
 
